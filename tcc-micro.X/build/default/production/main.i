@@ -4765,13 +4765,14 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 10 "main.c" 2
 
+
 #pragma config OSC = XT, WDT = OFF, BOREN = OFF
-# 24 "main.c"
+# 25 "main.c"
 void putch(char byte) {
     TXREG = byte;
     while (!TXSTAbits.TRMT);
 }
-# 57 "main.c"
+# 58 "main.c"
 void setLED(char pos, char value) {
     switch (pos) {
         case 1:
@@ -4802,7 +4803,7 @@ char getBTN(char pos) {
     }
     return 0;
 }
-# 105 "main.c"
+
 void initUART(void) {
     TRISCbits.RC6 = 1;
     TRISCbits.RC7 = 1;
@@ -4831,26 +4832,61 @@ void init() {
 
 
     INTCONbits.RBIE = 1;
-# 141 "main.c"
+# 125 "main.c"
 }
+
+int *generate_random_sequence_easy() {
+
+    int array[4] = {};
+    int r = 0;
+    for (int i = 0; i < 4; i++) {
+        r = rand() % 4;
+        r = r + 1;
+        array[i] = r;
+    }
+    return array;
+}
+
 
 void main(void) {
     init();
     initUART();
     printf("Init UART! \n");
+    int array[4] = {};
+    int r = 0;
 
+    for (int i = 0; i < 4; i++) {
+        r = rand() % 4;
+        r = r + 1;
+        array[i] = r;
+    }
 
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", array[i]);
+        setLED(array[i], 1);
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        setLED(array[i], 0);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+    }
+
+    _delay((unsigned long)((2000)*(16000000/4000.0)));
+
+    for (int i = 0; i < 4; i++) {
+        r = rand() % 4;
+        r = r + 1;
+        array[i] = r;
+    }
+
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", array[i]);
+        setLED(array[i], 1);
+        _delay((unsigned long)((1000)*(16000000/4000.0)));
+        setLED(array[i], 0);
+        _delay((unsigned long)((500)*(16000000/4000.0)));
+    }
 
     while(1){
-
-        setLED(1, getBTN(1));
-
-        setLED(2, getBTN(2));
-
-        setLED(3, getBTN(3));
-
-        setLED(4, getBTN(4));
-# 171 "main.c"
+# 198 "main.c"
     }
 
     return;

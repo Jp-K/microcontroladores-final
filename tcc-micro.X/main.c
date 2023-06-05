@@ -8,6 +8,7 @@
 
 #include <xc.h>
 #include<stdio.h>
+#include <stdlib.h>
 #pragma config OSC = XT, WDT = OFF, BOREN = OFF
 #define _XTAL_FREQ 16000000
 
@@ -25,7 +26,7 @@ void putch(char byte) { // cria um override do putch para usar no printf
     TXREG = byte;
     while (!TXSTAbits.TRMT);
 }
-
+// fazer aqui o debounce dos 4 botões
 //void __interrupt() interruption (void) {
 //    
 //    if (INTCONbits.RBIF == 0x01) {
@@ -123,22 +124,105 @@ void init() {
     
 }
 
+int *generate_random_sequence_easy() {
+    
+    int array[4] = {};
+    int r = 0;
+    for (int i = 0; i < 4; i++) {
+        r = rand() % 4;
+        r = r + 1;
+        array[i] = r;
+    }
+    return array;
+}
+
+
 void main(void) {
     init();
     initUART();
     printf("Init UART! \n");
+    int array[4] = {};
+    int r = 0;
     
+    for (int i = 0; i < 4; i++) {
+        r = rand() % 4;
+        r = r + 1;
+        array[i] = r;
+    }
     
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", array[i]);
+        setLED(array[i], 1);
+        __delay_ms(1000);
+        setLED(array[i], 0);
+        __delay_ms(500);
+    }
+    
+    __delay_ms(2000);
+    
+    for (int i = 0; i < 4; i++) {
+        r = rand() % 4;
+        r = r + 1;
+        array[i] = r;
+    }
+    
+    for (int i = 0; i < 4; i++) {
+        printf("%d ", array[i]);
+        setLED(array[i], 1);
+        __delay_ms(1000);
+        setLED(array[i], 0);
+        __delay_ms(500);
+    }
+    
+    int estagio = 0;
+    
+    int possui_sequencia_facil = 0;
+    int possui_sequencia_media = 0;
+    int possui_sequencia_dificil = 0;
     
     while(1){
         
-        setLED(1, getBTN(1));
+        if (estagio == 0) {
+            if (possui_sequencia_facil == 0) {
+                for (int i = 0; i < 4; i++) {
+                    r = rand() % 4;
+                    r = r + 1;
+                    array[i] = r;
+                }
+                possui_sequencia_facil = 1;
+            }
+            // reproduz o nivel fácil
+        } else if (estagio == 1) {
+            // espera o input fácil
+        } else if (estagio == 2) {
+            // roda som de vitória / derrota
+            
+            // volta para o estágio 0 ou segue para o estágio 3
+        } else if (estagio == 3) {
+            if (possui_sequencia_media == 0) {
+                for (int i = 0; i < 4; i++) {
+                    r = rand() % 4;
+                    r = r + 1;
+                    array[i] = r;
+                }
+                possui_sequencia_media = 1;
+            }
+            // reproduz o nivel médio
+        } else if (estagio == 4) {
+            // espera o input médio
+        } else if (estagio == 5) {
+            // roda som de vitória / derrota
+            
+            // volta para o estágio 0 ou segue para o estágio 6
+        }
         
-        setLED(2, getBTN(2));
-        
-        setLED(3, getBTN(3));
-        
-        setLED(4, getBTN(4));
+//        setLED(1, getBTN(1));
+//        
+//        setLED(2, getBTN(2));
+//        
+//        setLED(3, getBTN(3));
+//        
+//        setLED(4, getBTN(4));
         
 //        LED2 = 1;
 //        __delay_ms(2000);
