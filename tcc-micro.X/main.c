@@ -22,24 +22,76 @@
 #define BTN3 PORTBbits.RB7
 #define BTN4 PORTBbits.RB6
 
+int pressedBTN1 = 0;
+int pressedBTN2 = 0;
+int pressedBTN3 = 0;
+int pressedBTN4 = 0;
+
 void putch(char byte) { // cria um override do putch para usar no printf
     TXREG = byte;
     while (!TXSTAbits.TRMT);
 }
 // fazer aqui o debounce dos 4 botões
-//void __interrupt() interruption (void) {
-//    
-//    if (INTCONbits.RBIF == 0x01) {
-//        if (SW1 == 0) // Verify if switch 1 was pressed
-//        {
-//            __delay_ms(50);
-//            if (SW1 == 0) {
-//                pressedSW1 = 1; // Set pressed switch 1 variable
-//            }
-//        }
-//        INTCONbits.RBIF == 0x01 = 0; // Clear interruption flag
-//    }
-//};
+void __interrupt() interruption (void) {
+    
+    if (INTCONbits.RBIF == 0x01) {
+        if (BTN1 == 0) // Verify if switch 1 was pressed
+        {
+            __delay_ms(50);
+            if (BTN1 == 0) {
+                pressedBTN1 = 1; // Set pressed switch 1 variable
+                LED1 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    __delay_us(500);
+                    PORTCbits.RC2 = 0;
+                    __delay_us(500);  
+                } 
+                LED1 = 0;
+            } 
+        } else if (BTN2 == 0){
+            __delay_ms(50);
+            if (BTN2 == 0) {
+                pressedBTN2 = 1; // Set pressed switch 1 variable
+                LED2 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    __delay_us(400);
+                    PORTCbits.RC2 = 0;
+                    __delay_us(400);  
+                }
+                LED2 = 0;
+            }
+        } else if (BTN3 == 0){
+            __delay_ms(50);
+            if (BTN3 == 0) {
+                pressedBTN3 = 1; // Set pressed switch 1 variable
+                LED3 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    __delay_us(300);
+                    PORTCbits.RC2 = 0;
+                    __delay_us(300);  
+                }
+                LED3 = 0;
+            }
+        } else if (BTN4 == 0){
+            __delay_ms(50);
+            if (BTN4 == 0) {
+                pressedBTN4 = 1; // Set pressed switch 1 variable
+                LED4 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    __delay_us(200);
+                    PORTCbits.RC2 = 0;
+                    __delay_us(200);  
+                }
+                LED4 = 0;
+            }
+        }
+        INTCONbits.RBIF = 0; // Clear interruption flag ? == 0x01
+    }
+};
 
 //char getLED(char pos) {
 //    switch (pos) {
@@ -105,22 +157,23 @@ void init() {
     PORTD = 0x00; // Initialize 0 in PORT D
     
     TRISB = 0xFF;
+    TRISCbits.RC2 = 0;
     INTCON2bits.RBPU = 0;
     
     RCONbits.IPEN      = 0; // Enable interruptions legacy mode
 //
-//    INTCONbits.INT0IF  = 0; // Set 0 for interruption flag 
-//    INTCON3bits.INT1IF = 0; // Set 0 for interruption flag 
+    INTCONbits.INT0IF  = 0; // Set 0 for interruption flag 
+    INTCON3bits.INT1IF = 0; // Set 0 for interruption flag 
 //    
 //    //INT BUTTON EDGE
     INTCONbits.RBIE = 1; // Enable interruption on RB pins
     
-    //INTCON2bits.INTEDG0 = 0; // RB0 Interrupt Rising Edge
-    //INTCON2bits.INTEDG1 = 0; // RB1 Interrupt Rising Edge
+    INTCON2bits.INTEDG0 = 0; // RB0 Interrupt Rising Edge
+    INTCON2bits.INTEDG1 = 0; // RB1 Interrupt Rising Edge
 //    
-    //INTCONbits.INT0IE  = 1; // Set 1 for external interruptions
-    //INTCON3bits.INT1IE = 1;
-    //INTCONbits.GIE     = 1; // Enable global interruptions
+    INTCONbits.INT0IE  = 1; // Set 1 for external interruptions
+    INTCON3bits.INT1IE = 1;
+    INTCONbits.GIE     = 1; // Enable global interruptions
     
 }
 
@@ -144,39 +197,43 @@ void main(void) {
     int array[4] = {};
     int r = 0;
     
-    for (int i = 0; i < 4; i++) {
-        r = rand() % 4;
-        r = r + 1;
-        array[i] = r;
-    }
-    
-    for (int i = 0; i < 4; i++) {
-        printf("%d ", array[i]);
-        setLED(array[i], 1);
-        __delay_ms(1000);
-        setLED(array[i], 0);
-        __delay_ms(500);
-    }
-    
-    __delay_ms(2000);
-    
-    for (int i = 0; i < 4; i++) {
-        r = rand() % 4;
-        r = r + 1;
-        array[i] = r;
-    }
-    
-    for (int i = 0; i < 4; i++) {
-        printf("%d ", array[i]);
-        setLED(array[i], 1);
-        __delay_ms(1000);
-        setLED(array[i], 0);
-        __delay_ms(500);
-    }
+//    for (int i = 0; i < 4; i++) {
+//        r = rand() % 4;
+//        r = r + 1;
+//        array[i] = r;
+//    }
+//    
+//    for (int i = 0; i < 4; i++) {
+//        printf("%d ", array[i]);
+//        setLED(array[i], 1);
+//        __delay_ms(1000);
+//        setLED(array[i], 0);
+//        __delay_ms(500);
+//    }
+//    
+//    __delay_ms(2000);
+//    
+//    for (int i = 0; i < 4; i++) {
+//        r = rand() % 4;
+//        r = r + 1;
+//        array[i] = r;
+//    }
+//    
+//    for (int i = 0; i < 4; i++) {
+//        printf("%d ", array[i]);
+//        setLED(array[i], 1);
+//        __delay_ms(1000);
+//        setLED(array[i], 0);
+//        __delay_ms(500);
+//    }
     
     int estagio = 0;
     
     int possui_sequencia_facil = 0;
+    int esperando_sequencia_facil = 0;
+    int sequencia_facil[4] = {0};
+    int sequencia_facil_finalizou = 0;
+    int sequencia_facil_perdeu = 0;
     int possui_sequencia_media = 0;
     int possui_sequencia_dificil = 0;
     
@@ -192,6 +249,86 @@ void main(void) {
                 possui_sequencia_facil = 1;
             }
             // reproduz o nivel fácil
+            if (esperando_sequencia_facil == 0) {
+                for (int i = 0; i < 4; i++) {
+                    printf("%d ", array[i]);
+                    setLED(array[i], 1);
+                    __delay_ms(1000);
+                    setLED(array[i], 0);
+                    __delay_ms(500);
+                }
+                esperando_sequencia_facil = 1;
+            }
+            
+            if (esperando_sequencia_facil = 1) {
+                if (pressedBTN1 == 1) {
+                    pressedBTN1 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 1;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+                    
+                } else if (pressedBTN2 == 1) {
+                    pressedBTN2 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 2;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+                    
+                } else if (pressedBTN3 == 1) {
+                    pressedBTN3 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 3;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+                    
+                } else if (pressedBTN4 == 1) {
+                    pressedBTN4 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 4;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+                    
+                }
+                
+                if (sequencia_facil_finalizou == 1) {
+                    for (int i = 0; i < 4; i++) {
+                        printf("%d ", sequencia_facil[i]);
+                        if (sequencia_facil[i] !=  array[i]) {
+                            sequencia_facil_perdeu = 1;
+                        }
+                    }
+                    if (sequencia_facil_perdeu == 1) {
+                        printf("perdeu ");
+                    } else {
+                        printf("ganhou ");
+                    }
+                }
+            }
         } else if (estagio == 1) {
             // espera o input fácil
         } else if (estagio == 2) {

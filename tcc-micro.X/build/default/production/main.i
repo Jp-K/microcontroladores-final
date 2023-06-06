@@ -4768,11 +4768,77 @@ char *tempnam(const char *, const char *);
 
 #pragma config OSC = XT, WDT = OFF, BOREN = OFF
 # 25 "main.c"
+int pressedBTN1 = 0;
+int pressedBTN2 = 0;
+int pressedBTN3 = 0;
+int pressedBTN4 = 0;
+
 void putch(char byte) {
     TXREG = byte;
     while (!TXSTAbits.TRMT);
 }
-# 58 "main.c"
+
+void __attribute__((picinterrupt(("")))) interruption (void) {
+
+    if (INTCONbits.RBIF == 0x01) {
+        if (PORTBbits.RB5 == 0)
+        {
+            _delay((unsigned long)((50)*(16000000/4000.0)));
+            if (PORTBbits.RB5 == 0) {
+                pressedBTN1 = 1;
+                PORTDbits.RD0 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    _delay((unsigned long)((500)*(16000000/4000000.0)));
+                    PORTCbits.RC2 = 0;
+                    _delay((unsigned long)((500)*(16000000/4000000.0)));
+                }
+                PORTDbits.RD0 = 0;
+            }
+        } else if (PORTBbits.RB4 == 0){
+            _delay((unsigned long)((50)*(16000000/4000.0)));
+            if (PORTBbits.RB4 == 0) {
+                pressedBTN2 = 1;
+                PORTDbits.RD1 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    _delay((unsigned long)((400)*(16000000/4000000.0)));
+                    PORTCbits.RC2 = 0;
+                    _delay((unsigned long)((400)*(16000000/4000000.0)));
+                }
+                PORTDbits.RD1 = 0;
+            }
+        } else if (PORTBbits.RB7 == 0){
+            _delay((unsigned long)((50)*(16000000/4000.0)));
+            if (PORTBbits.RB7 == 0) {
+                pressedBTN3 = 1;
+                PORTDbits.RD2 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    _delay((unsigned long)((300)*(16000000/4000000.0)));
+                    PORTCbits.RC2 = 0;
+                    _delay((unsigned long)((300)*(16000000/4000000.0)));
+                }
+                PORTDbits.RD2 = 0;
+            }
+        } else if (PORTBbits.RB6 == 0){
+            _delay((unsigned long)((50)*(16000000/4000.0)));
+            if (PORTBbits.RB6 == 0) {
+                pressedBTN4 = 1;
+                PORTDbits.RD3 = 1;
+                for (int i = 0; i < 255; i++) {
+                    PORTCbits.RC2 = 1;
+                    _delay((unsigned long)((200)*(16000000/4000000.0)));
+                    PORTCbits.RC2 = 0;
+                    _delay((unsigned long)((200)*(16000000/4000000.0)));
+                }
+                PORTDbits.RD3 = 0;
+            }
+        }
+        INTCONbits.RBIF = 0;
+    }
+};
+# 110 "main.c"
 void setLED(char pos, char value) {
     switch (pos) {
         case 1:
@@ -4823,16 +4889,24 @@ void init() {
     PORTD = 0x00;
 
     TRISB = 0xFF;
+    TRISCbits.RC2 = 0;
     INTCON2bits.RBPU = 0;
 
     RCONbits.IPEN = 0;
 
-
-
+    INTCONbits.INT0IF = 0;
+    INTCON3bits.INT1IF = 0;
 
 
     INTCONbits.RBIE = 1;
-# 125 "main.c"
+
+    INTCON2bits.INTEDG0 = 0;
+    INTCON2bits.INTEDG1 = 0;
+
+    INTCONbits.INT0IE = 1;
+    INTCON3bits.INT1IE = 1;
+    INTCONbits.GIE = 1;
+
 }
 
 int *generate_random_sequence_easy() {
@@ -4854,39 +4928,133 @@ void main(void) {
     printf("Init UART! \n");
     int array[4] = {};
     int r = 0;
+# 230 "main.c"
+    int estagio = 0;
 
-    for (int i = 0; i < 4; i++) {
-        r = rand() % 4;
-        r = r + 1;
-        array[i] = r;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        printf("%d ", array[i]);
-        setLED(array[i], 1);
-        _delay((unsigned long)((1000)*(16000000/4000.0)));
-        setLED(array[i], 0);
-        _delay((unsigned long)((500)*(16000000/4000.0)));
-    }
-
-    _delay((unsigned long)((2000)*(16000000/4000.0)));
-
-    for (int i = 0; i < 4; i++) {
-        r = rand() % 4;
-        r = r + 1;
-        array[i] = r;
-    }
-
-    for (int i = 0; i < 4; i++) {
-        printf("%d ", array[i]);
-        setLED(array[i], 1);
-        _delay((unsigned long)((1000)*(16000000/4000.0)));
-        setLED(array[i], 0);
-        _delay((unsigned long)((500)*(16000000/4000.0)));
-    }
+    int possui_sequencia_facil = 0;
+    int esperando_sequencia_facil = 0;
+    int sequencia_facil[4] = {0};
+    int sequencia_facil_finalizou = 0;
+    int sequencia_facil_perdeu = 0;
+    int possui_sequencia_media = 0;
+    int possui_sequencia_dificil = 0;
 
     while(1){
-# 198 "main.c"
+
+        if (estagio == 0) {
+            if (possui_sequencia_facil == 0) {
+                for (int i = 0; i < 4; i++) {
+                    r = rand() % 4;
+                    r = r + 1;
+                    array[i] = r;
+                }
+                possui_sequencia_facil = 1;
+            }
+
+            if (esperando_sequencia_facil == 0) {
+                for (int i = 0; i < 4; i++) {
+                    printf("%d ", array[i]);
+                    setLED(array[i], 1);
+                    _delay((unsigned long)((1000)*(16000000/4000.0)));
+                    setLED(array[i], 0);
+                    _delay((unsigned long)((500)*(16000000/4000.0)));
+                }
+                esperando_sequencia_facil = 1;
+            }
+
+            if (esperando_sequencia_facil = 1) {
+                if (pressedBTN1 == 1) {
+                    pressedBTN1 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 1;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+
+                } else if (pressedBTN2 == 1) {
+                    pressedBTN2 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 2;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+
+                } else if (pressedBTN3 == 1) {
+                    pressedBTN3 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 3;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+
+                } else if (pressedBTN4 == 1) {
+                    pressedBTN4 = 0;
+                    sequencia_facil_finalizou = 1;
+                    for (int i = 0; i < 4; i++) {
+                        if (sequencia_facil[i] == 0) {
+                            sequencia_facil[i] = 4;
+                            if (i < 3) {
+                                sequencia_facil_finalizou = 0;
+                            }
+                            break;
+                        }
+                    }
+
+                }
+
+                if (sequencia_facil_finalizou == 1) {
+                    for (int i = 0; i < 4; i++) {
+                        printf("%d ", sequencia_facil[i]);
+                        if (sequencia_facil[i] != array[i]) {
+                            sequencia_facil_perdeu = 1;
+                        }
+                    }
+                    if (sequencia_facil_perdeu == 1) {
+                        printf("perdeu ");
+                    } else {
+                        printf("ganhou ");
+                    }
+                }
+            }
+        } else if (estagio == 1) {
+
+        } else if (estagio == 2) {
+
+
+
+        } else if (estagio == 3) {
+            if (possui_sequencia_media == 0) {
+                for (int i = 0; i < 4; i++) {
+                    r = rand() % 4;
+                    r = r + 1;
+                    array[i] = r;
+                }
+                possui_sequencia_media = 1;
+            }
+
+        } else if (estagio == 4) {
+
+        } else if (estagio == 5) {
+
+
+
+        }
+# 375 "main.c"
     }
 
     return;
