@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o
+ C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o
  -Odist/default/production\tcc-micro.X.production.hex
  -logfile=dist/default/production\tcc-micro.X.production.hxl
  -addressing=1
@@ -9,23 +9,23 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
-  8h - 11h		(C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
-  600h - 622h		(C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
-  624h - 16AFh		(C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
-  200000h - 200007h		(C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
-  300000h - 30000Dh		(C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
+  0h - 3h		(C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
+  8h - 11h		(C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
+  600h - 622h		(C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
+  624h - 17E1h		(C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
+  200000h - 200007h		(C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
+  300000h - 30000Dh		(C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   12h - 5FFh
   623h - 623h
-  16B0h - 1FFFFFh
+  17E2h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\joaop\AppData\Local\Temp\xcAs6s8.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\joaop\AppData\Local\Temp\xcAse3s.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -299,6 +299,26 @@
 00001680 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001690 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000016A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000016F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001700 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001710 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001720 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001730 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001740 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001750 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001760 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001770 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001780 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001790 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000017A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000017B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000017C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000017D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000017E0 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

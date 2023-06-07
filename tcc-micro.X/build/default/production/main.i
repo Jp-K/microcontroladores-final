@@ -4921,6 +4921,46 @@ int *generate_random_sequence_easy() {
     return array;
 }
 
+void reproduz_vitoria() {
+
+    PORTDbits.RD0 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        _delay((unsigned long)((700)*(16000000/4000000.0)));
+        PORTCbits.RC2 = 0;
+        _delay((unsigned long)((700)*(16000000/4000000.0)));
+    }
+    PORTDbits.RD0 = 0;
+
+    PORTDbits.RD1 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        _delay((unsigned long)((600)*(16000000/4000000.0)));
+        PORTCbits.RC2 = 0;
+        _delay((unsigned long)((600)*(16000000/4000000.0)));
+    }
+    PORTDbits.RD1 = 0;
+
+    PORTDbits.RD2 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        _delay((unsigned long)((500)*(16000000/4000000.0)));
+        PORTCbits.RC2 = 0;
+        _delay((unsigned long)((500)*(16000000/4000000.0)));
+    }
+    PORTDbits.RD2 = 0;
+
+    PORTDbits.RD3 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        _delay((unsigned long)((400)*(16000000/4000000.0)));
+        PORTCbits.RC2 = 0;
+        _delay((unsigned long)((400)*(16000000/4000000.0)));
+    }
+    PORTDbits.RD3 = 0;
+
+}
+
 
 void main(void) {
     init();
@@ -4928,7 +4968,7 @@ void main(void) {
     printf("Init UART! \n");
     int array[4] = {};
     int r = 0;
-# 230 "main.c"
+# 270 "main.c"
     int estagio = 0;
 
     int possui_sequencia_facil = 0;
@@ -5028,6 +5068,7 @@ void main(void) {
                         printf("perdeu ");
                     } else {
                         printf("ganhou ");
+                        reproduz_vitoria();
                     }
                 }
             }
@@ -5054,7 +5095,7 @@ void main(void) {
 
 
         }
-# 375 "main.c"
+# 416 "main.c"
     }
 
     return;

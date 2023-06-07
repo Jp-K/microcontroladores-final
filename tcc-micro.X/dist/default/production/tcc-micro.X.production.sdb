@@ -59,7 +59,9 @@
 [v _initUART initUART `(v  1 e 1 0 ]
 "154
 [v _init init `(v  1 e 1 0 ]
-"193
+"192
+[v _reproduz_vitoria reproduz_vitoria `(v  1 e 1 0 ]
+"233
 [v _main main `(v  1 e 1 0 ]
 [s S126 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
@@ -377,44 +379,44 @@
 [v _pressedBTN3 pressedBTN3 `i  1 e 2 0 ]
 "28
 [v _pressedBTN4 pressedBTN4 `i  1 e 2 0 ]
-"193
+"233
 [v _main main `(v  1 e 1 0 ]
 {
-"319
-[v main@i_791 i `i  1 a 2 42 ]
-"306
-[v main@i_790 i `i  1 a 2 40 ]
+"359
+[v main@i_796 i `i  1 a 2 42 ]
+"346
+[v main@i_795 i `i  1 a 2 40 ]
+"333
+[v main@i_794 i `i  1 a 2 38 ]
+"320
+[v main@i_793 i `i  1 a 2 36 ]
+"307
+[v main@i_792 i `i  1 a 2 34 ]
+"381
+[v main@i_801 i `i  1 a 2 28 ]
 "293
-[v main@i_789 i `i  1 a 2 38 ]
-"280
-[v main@i_788 i `i  1 a 2 36 ]
-"267
-[v main@i_787 i `i  1 a 2 34 ]
-"340
-[v main@i_795 i `i  1 a 2 28 ]
-"253
-[v main@i_784 i `i  1 a 2 32 ]
-"244
+[v main@i_789 i `i  1 a 2 32 ]
+"284
 [v main@i i `i  1 a 2 26 ]
-"234
+"274
 [v main@sequencia_facil sequencia_facil `[4]i  1 a 8 16 ]
-"197
-[v main@array array `[4]i  1 a 8 8 ]
-"230
-[v main@estagio estagio `i  1 a 2 44 ]
-"198
-[v main@r r `i  1 a 2 30 ]
-"235
-[v main@sequencia_facil_finalizou sequencia_facil_finalizou `i  1 a 2 24 ]
-"233
-[v main@esperando_sequencia_facil esperando_sequencia_facil `i  1 a 2 6 ]
 "237
+[v main@array array `[4]i  1 a 8 8 ]
+"270
+[v main@estagio estagio `i  1 a 2 44 ]
+"238
+[v main@r r `i  1 a 2 30 ]
+"275
+[v main@sequencia_facil_finalizou sequencia_facil_finalizou `i  1 a 2 24 ]
+"273
+[v main@esperando_sequencia_facil esperando_sequencia_facil `i  1 a 2 6 ]
+"277
 [v main@possui_sequencia_media possui_sequencia_media `i  1 a 2 4 ]
-"236
+"276
 [v main@sequencia_facil_perdeu sequencia_facil_perdeu `i  1 a 2 2 ]
-"232
+"272
 [v main@possui_sequencia_facil possui_sequencia_facil `i  1 a 2 0 ]
-"378
+"419
 } 0
 "110
 [v _setLED setLED `(v  1 e 1 0 ]
@@ -424,6 +426,19 @@
 [v setLED@value value `uc  1 p 1 10 ]
 [v setLED@pos pos `uc  1 a 1 13 ]
 "125
+} 0
+"192
+[v _reproduz_vitoria reproduz_vitoria `(v  1 e 1 0 ]
+{
+"222
+[v reproduz_vitoria@i_767 i `i  1 a 2 17 ]
+"213
+[v reproduz_vitoria@i_766 i `i  1 a 2 15 ]
+"204
+[v reproduz_vitoria@i_765 i `i  1 a 2 13 ]
+"195
+[v reproduz_vitoria@i i `i  1 a 2 11 ]
+"230
 } 0
 "11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\rand.c
 [v _rand rand `(i  1 e 2 0 ]
@@ -454,9 +469,9 @@
 {
 "1549
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 71 ]
-[s S1259 _IO_FILE 0 ]
+[s S1265 _IO_FILE 0 ]
 "1546
-[v vfprintf@fp fp `*.2S1259  1 p 2 65 ]
+[v vfprintf@fp fp `*.2S1265  1 p 2 65 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 67 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 69 ]
 "1569
@@ -464,14 +479,14 @@
 "1048
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1277 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S1283 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1059
-[v vfpfcnvrt@convarg convarg `S1277  1 a 4 59 ]
+[v vfpfcnvrt@convarg convarg `S1283  1 a 4 59 ]
 "1050
 [v vfpfcnvrt@cp cp `*.25uc  1 a 2 63 ]
-[s S1259 _IO_FILE 0 ]
+[s S1265 _IO_FILE 0 ]
 "1048
-[v vfpfcnvrt@fp fp `*.2S1259  1 p 2 51 ]
+[v vfpfcnvrt@fp fp `*.2S1265  1 p 2 51 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 53 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 55 ]
 "1543
@@ -485,9 +500,9 @@
 [v dtoa@p p `i  1 a 2 44 ]
 "472
 [v dtoa@s s `uc  1 a 1 50 ]
-[s S1259 _IO_FILE 0 ]
+[s S1265 _IO_FILE 0 ]
 "470
-[v dtoa@fp fp `*.2S1259  1 p 2 38 ]
+[v dtoa@fp fp `*.2S1265  1 p 2 38 ]
 [v dtoa@d d `i  1 p 2 40 ]
 "527
 } 0
@@ -497,9 +512,9 @@
 "154
 [v pad@w w `i  1 a 2 36 ]
 [v pad@i i `i  1 a 2 34 ]
-[s S1259 _IO_FILE 0 ]
+[s S1265 _IO_FILE 0 ]
 "152
-[v pad@fp fp `*.2S1259  1 p 2 27 ]
+[v pad@fp fp `*.2S1265  1 p 2 27 ]
 [v pad@buf buf `*.39uc  1 p 2 29 ]
 [v pad@p p `i  1 p 2 31 ]
 "183
@@ -513,18 +528,18 @@
 [v fputs@c c `uc  1 a 1 24 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 20 ]
-[u S1237 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1240 _IO_FILE 12 `S1237 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputs@fp fp `*.2S1240  1 p 2 22 ]
+[u S1243 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1246 _IO_FILE 12 `S1243 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputs@fp fp `*.2S1246  1 p 2 22 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 11 ]
-[u S1237 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1240 _IO_FILE 12 `S1237 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.2S1240  1 p 2 13 ]
+[u S1243 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1246 _IO_FILE 12 `S1243 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.2S1246  1 p 2 13 ]
 "24
 } 0
 "30 C:\Users\joaop\Desktop\micro-final2\tcc-micro.X\main.c

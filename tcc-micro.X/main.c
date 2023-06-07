@@ -189,6 +189,46 @@ int *generate_random_sequence_easy() {
     return array;
 }
 
+void reproduz_vitoria() {
+    
+    LED1 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        __delay_us(700);
+        PORTCbits.RC2 = 0;
+        __delay_us(700);  
+    }
+    LED1 = 0;
+    
+    LED2 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        __delay_us(600);
+        PORTCbits.RC2 = 0;
+        __delay_us(600);  
+    }
+    LED2 = 0;
+    
+    LED3 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        __delay_us(500);
+        PORTCbits.RC2 = 0;
+        __delay_us(500);  
+    }
+    LED3 = 0;
+    
+    LED4 = 1;
+    for (int i = 0; i < 255; i++) {
+        PORTCbits.RC2 = 1;
+        __delay_us(400);
+        PORTCbits.RC2 = 0;
+        __delay_us(400);  
+    }
+    LED4 = 0;
+    
+}
+
 
 void main(void) {
     init();
@@ -326,6 +366,7 @@ void main(void) {
                         printf("perdeu ");
                     } else {
                         printf("ganhou ");
+                        reproduz_vitoria();
                     }
                 }
             }
