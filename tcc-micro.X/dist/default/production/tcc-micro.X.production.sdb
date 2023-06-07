@@ -35,7 +35,9 @@
 [v _fputs fputs `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\printf.c
 [v _printf printf `(i  1 e 2 0 ]
-"11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\rand.c
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\rand.c
+[v _srand srand `(v  1 e 1 0 ]
+"11
 [v _rand rand `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
@@ -49,21 +51,27 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"30 C:\Users\joaop\Desktop\micro-final2\tcc-micro.X\main.c
+"34 C:\Users\brasi\MPLABXProjects\tcc-micro.X\main.c
 [v _putch putch `(v  1 e 1 0 ]
-"35
+"39
 [v _interruption interruption `IIH(v  1 e 1 0 ]
-"110
+"109
+[v _millis millis `(uo  1 e 8 0 ]
+"113
+[v _reproduz_som_led reproduz_som_led `(v  1 e 1 0 ]
+"150
 [v _setLED setLED `(v  1 e 1 0 ]
-"141
+"181
 [v _initUART initUART `(v  1 e 1 0 ]
-"154
+"194
 [v _init init `(v  1 e 1 0 ]
-"192
+"244
 [v _reproduz_vitoria reproduz_vitoria `(v  1 e 1 0 ]
-"233
+"284
+[v _reproduz_derrota reproduz_derrota `(v  1 e 1 0 ]
+"333
 [v _main main `(v  1 e 1 0 ]
-[s S126 . 1 `uc 1 RB0 1 0 :1:0 
+[s S128 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -73,7 +81,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "316 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4520.h
-[s S135 . 1 `uc 1 INT0 1 0 :1:0 
+[s S137 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -82,7 +90,7 @@
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S144 . 1 `uc 1 AN12 1 0 :1:0 
+[s S146 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -91,14 +99,14 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S153 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S155 . 1 `uc 1 FLT0 1 0 :1:0 
 ]
-[s S155 . 1 `uc 1 . 1 0 :3:0 
+[s S157 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S158 . 1 `S126 1 . 1 0 `S135 1 . 1 0 `S144 1 . 1 0 `S153 1 . 1 0 `S155 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES158  1 e 1 @3969 ]
-[s S261 . 1 `uc 1 RC0 1 0 :1:0 
+[u S160 . 1 `S128 1 . 1 0 `S137 1 . 1 0 `S146 1 . 1 0 `S155 1 . 1 0 `S157 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES160  1 e 1 @3969 ]
+[s S263 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -108,7 +116,7 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "498
-[s S270 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S272 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -117,7 +125,7 @@
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S279 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S281 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -126,19 +134,19 @@
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S288 . 1 `uc 1 T1CKI 1 0 :1:0 
+[s S290 . 1 `uc 1 T1CKI 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 P1A 1 0 :1:2 
 ]
-[s S292 . 1 `uc 1 . 1 0 :1:0 
+[s S294 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 `uc 1 PA1 1 0 :1:2 
 ]
-[u S296 . 1 `S261 1 . 1 0 `S270 1 . 1 0 `S279 1 . 1 0 `S288 1 . 1 0 `S292 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES296  1 e 1 @3970 ]
+[u S298 . 1 `S263 1 . 1 0 `S272 1 . 1 0 `S281 1 . 1 0 `S290 1 . 1 0 `S294 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES298  1 e 1 @3970 ]
 "633
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
-[s S203 . 1 `uc 1 RD0 1 0 :1:0 
+[s S205 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -148,7 +156,7 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "670
-[s S212 . 1 `uc 1 PSP0 1 0 :1:0 
+[s S214 . 1 `uc 1 PSP0 1 0 :1:0 
 `uc 1 PSP1 1 0 :1:1 
 `uc 1 PSP2 1 0 :1:2 
 `uc 1 PSP3 1 0 :1:3 
@@ -157,19 +165,19 @@
 `uc 1 PSP6 1 0 :1:6 
 `uc 1 PSP7 1 0 :1:7 
 ]
-[s S221 . 1 `uc 1 . 1 0 :5:0 
+[s S223 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 P1B 1 0 :1:5 
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S226 . 1 `uc 1 . 1 0 :7:0 
+[s S228 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S229 . 1 `S203 1 . 1 0 `S212 1 . 1 0 `S221 1 . 1 0 `S226 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES229  1 e 1 @3971 ]
+[u S231 . 1 `S205 1 . 1 0 `S214 1 . 1 0 `S223 1 . 1 0 `S228 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES231  1 e 1 @3971 ]
 "1700
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S338 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S340 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -179,11 +187,11 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1954
-[u S356 . 1 `S338 1 . 1 0 `S261 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES356  1 e 1 @3988 ]
+[u S358 . 1 `S340 1 . 1 0 `S263 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES358  1 e 1 @3988 ]
 "2144
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S426 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S428 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -193,22 +201,22 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3152
-[s S435 . 1 `uc 1 . 1 0 :3:0 
+[s S437 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S438 . 1 `uc 1 . 1 0 :5:0 
+[s S440 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S441 . 1 `uc 1 . 1 0 :6:0 
+[s S443 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S444 . 1 `uc 1 . 1 0 :6:0 
+[s S446 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S447 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S449 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S449 . 1 `S426 1 . 1 0 `S435 1 . 1 0 `S438 1 . 1 0 `S441 1 . 1 0 `S444 1 . 1 0 `S447 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES449  1 e 1 @4011 ]
+[u S451 . 1 `S428 1 . 1 0 `S437 1 . 1 0 `S440 1 . 1 0 `S443 1 . 1 0 `S446 1 . 1 0 `S449 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES451  1 e 1 @4011 ]
 [s S25 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
@@ -241,7 +249,7 @@
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3613
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S380 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S382 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -251,37 +259,37 @@
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4258
-[s S389 . 1 `uc 1 . 1 0 :4:0 
+[s S391 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S394 . 1 `uc 1 . 1 0 :5:0 
+[s S396 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S397 . 1 `uc 1 . 1 0 :1:0 
+[s S399 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S400 . 1 `S380 1 . 1 0 `S389 1 . 1 0 `S394 1 . 1 0 `S397 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES400  1 e 1 @4024 ]
+[u S402 . 1 `S382 1 . 1 0 `S391 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES402  1 e 1 @4024 ]
 "4691
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-[s S519 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S521 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5698
-[s S521 . 1 `uc 1 . 1 0 :1:0 
+[s S523 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S524 . 1 `uc 1 . 1 0 :2:0 
+[s S526 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S527 . 1 `uc 1 . 1 0 :3:0 
+[s S529 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S530 . 1 `uc 1 . 1 0 :4:0 
+[s S532 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S533 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S535 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -290,15 +298,36 @@
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S542 . 1 `uc 1 BOR 1 0 :1:0 
+[s S544 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S548 . 1 `S519 1 . 1 0 `S521 1 . 1 0 `S524 1 . 1 0 `S527 1 . 1 0 `S530 1 . 1 0 `S533 1 . 1 0 `S542 1 . 1 0 ]
-[v _RCONbits RCONbits `VES548  1 e 1 @4048 ]
-[s S586 . 1 `uc 1 INT1IF 1 0 :1:0 
+[u S550 . 1 `S521 1 . 1 0 `S523 1 . 1 0 `S526 1 . 1 0 `S529 1 . 1 0 `S532 1 . 1 0 `S535 1 . 1 0 `S544 1 . 1 0 ]
+[v _RCONbits RCONbits `VES550  1 e 1 @4048 ]
+[s S628 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"6192
+[s S635 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 T016BIT 1 0 :1:6 
+]
+[u S642 . 1 `S628 1 . 1 0 `S635 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES642  1 e 1 @4053 ]
+"6259
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"6266
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S588 . 1 `uc 1 INT1IF 1 0 :1:0 
 `uc 1 INT2IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1IE 1 0 :1:3 
@@ -308,7 +337,7 @@
 `uc 1 INT2IP 1 0 :1:7 
 ]
 "6558
-[s S595 . 1 `uc 1 INT1F 1 0 :1:0 
+[s S597 . 1 `uc 1 INT1F 1 0 :1:0 
 `uc 1 INT2F 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 INT1E 1 0 :1:3 
@@ -317,13 +346,13 @@
 `uc 1 INT1P 1 0 :1:6 
 `uc 1 INT2P 1 0 :1:7 
 ]
-[u S604 . 1 `S586 1 . 1 0 `S595 1 . 1 0 ]
-[v _INTCON3bits INTCON3bits `VES604  1 e 1 @4080 ]
-[s S484 . 1 `uc 1 . 1 0 :7:0 
+[u S606 . 1 `S588 1 . 1 0 `S597 1 . 1 0 ]
+[v _INTCON3bits INTCON3bits `VES606  1 e 1 @4080 ]
+[s S486 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6648
-[s S487 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S489 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -332,11 +361,11 @@
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S496 . 1 `uc 1 . 1 0 :7:0 
+[s S498 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S499 . 1 `S484 1 . 1 0 `S487 1 . 1 0 `S496 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES499  1 e 1 @4081 ]
+[u S501 . 1 `S486 1 . 1 0 `S489 1 . 1 0 `S498 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES501  1 e 1 @4081 ]
 [s S77 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -371,7 +400,7 @@
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\rand.c
 [v _seed seed `ul  1 s 4 seed ]
-"25 C:\Users\joaop\Desktop\micro-final2\tcc-micro.X\main.c
+"25 C:\Users\brasi\MPLABXProjects\tcc-micro.X\main.c
 [v _pressedBTN1 pressedBTN1 `i  1 e 2 0 ]
 "26
 [v _pressedBTN2 pressedBTN2 `i  1 e 2 0 ]
@@ -379,66 +408,106 @@
 [v _pressedBTN3 pressedBTN3 `i  1 e 2 0 ]
 "28
 [v _pressedBTN4 pressedBTN4 `i  1 e 2 0 ]
-"233
+"30
+[v _game_iniciou game_iniciou `uc  1 e 1 0 ]
+"31
+[v _esperando_sequencia_facil esperando_sequencia_facil `i  1 e 2 0 ]
+"32
+[v _MILI_CNT MILI_CNT `uo  1 e 8 0 ]
+"333
 [v _main main `(v  1 e 1 0 ]
 {
-"359
-[v main@i_796 i `i  1 a 2 42 ]
-"346
-[v main@i_795 i `i  1 a 2 40 ]
-"333
-[v main@i_794 i `i  1 a 2 38 ]
-"320
-[v main@i_793 i `i  1 a 2 36 ]
-"307
-[v main@i_792 i `i  1 a 2 34 ]
-"381
-[v main@i_801 i `i  1 a 2 28 ]
-"293
-[v main@i_789 i `i  1 a 2 32 ]
-"284
-[v main@i i `i  1 a 2 26 ]
-"274
-[v main@sequencia_facil sequencia_facil `[4]i  1 a 8 16 ]
-"237
-[v main@array array `[4]i  1 a 8 8 ]
-"270
-[v main@estagio estagio `i  1 a 2 44 ]
-"238
-[v main@r r `i  1 a 2 30 ]
-"275
-[v main@sequencia_facil_finalizou sequencia_facil_finalizou `i  1 a 2 24 ]
-"273
-[v main@esperando_sequencia_facil esperando_sequencia_facil `i  1 a 2 6 ]
-"277
-[v main@possui_sequencia_media possui_sequencia_media `i  1 a 2 4 ]
-"276
-[v main@sequencia_facil_perdeu sequencia_facil_perdeu `i  1 a 2 2 ]
-"272
-[v main@possui_sequencia_facil possui_sequencia_facil `i  1 a 2 0 ]
-"419
+"497
+[v main@i_862 i `uc  1 a 1 60 ]
+"482
+[v main@i_860 i `uc  1 a 1 59 ]
+"466
+[v main@i_856 i `i  1 a 2 61 ]
+"453
+[v main@i_855 i `i  1 a 2 69 ]
+"440
+[v main@i_854 i `i  1 a 2 67 ]
+"427
+[v main@i_853 i `i  1 a 2 65 ]
+"414
+[v main@i_852 i `i  1 a 2 63 ]
+"511
+[v main@i_863 i `uc  1 a 1 54 ]
+"377
+[v main@i_849 i `i  1 a 2 71 ]
+"367
+[v main@i i `i  1 a 2 55 ]
+"343
+[v main@sequencia_usuario sequencia_usuario `[12]i  1 a 24 24 ]
+"337
+[v main@array array `[12]i  1 a 24 0 ]
+"340
+[v main@estagio estagio `i  1 a 2 73 ]
+"344
+[v main@sequencia_facil_finalizou sequencia_facil_finalizou `i  1 a 2 57 ]
+"338
+[v main@r r `i  1 a 2 52 ]
+"345
+[v main@sequencia_facil_perdeu sequencia_facil_perdeu `i  1 a 2 50 ]
+"342
+[v main@possui_sequencia_facil possui_sequencia_facil `i  1 a 2 48 ]
+"518
 } 0
-"110
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\rand.c
+[v _srand srand `(v  1 e 1 0 ]
+{
+[v srand@s s `ui  1 p 2 18 ]
+"9
+} 0
+"150 C:\Users\brasi\MPLABXProjects\tcc-micro.X\main.c
 [v _setLED setLED `(v  1 e 1 0 ]
 {
 [v setLED@pos pos `uc  1 a 1 wreg ]
 [v setLED@pos pos `uc  1 a 1 wreg ]
 [v setLED@value value `uc  1 p 1 10 ]
 [v setLED@pos pos `uc  1 a 1 13 ]
-"125
+"165
 } 0
-"192
+"244
 [v _reproduz_vitoria reproduz_vitoria `(v  1 e 1 0 ]
 {
-"222
-[v reproduz_vitoria@i_767 i `i  1 a 2 17 ]
-"213
-[v reproduz_vitoria@i_766 i `i  1 a 2 15 ]
-"204
-[v reproduz_vitoria@i_765 i `i  1 a 2 13 ]
-"195
+"274
+[v reproduz_vitoria@i_822 i `i  1 a 2 17 ]
+"265
+[v reproduz_vitoria@i_821 i `i  1 a 2 15 ]
+"256
+[v reproduz_vitoria@i_820 i `i  1 a 2 13 ]
+"247
 [v reproduz_vitoria@i i `i  1 a 2 11 ]
-"230
+"282
+} 0
+"113
+[v _reproduz_som_led reproduz_som_led `(v  1 e 1 0 ]
+{
+[v reproduz_som_led@pos pos `uc  1 a 1 wreg ]
+"140
+[v reproduz_som_led@i_738 i `i  1 a 2 19 ]
+"132
+[v reproduz_som_led@i_737 i `i  1 a 2 17 ]
+"124
+[v reproduz_som_led@i_736 i `i  1 a 2 15 ]
+"116
+[v reproduz_som_led@i i `i  1 a 2 13 ]
+"113
+[v reproduz_som_led@pos pos `uc  1 a 1 wreg ]
+[v reproduz_som_led@pos pos `uc  1 a 1 12 ]
+"148
+} 0
+"284
+[v _reproduz_derrota reproduz_derrota `(v  1 e 1 0 ]
+{
+"319
+[v reproduz_derrota@i_826 i `i  1 a 2 16 ]
+"304
+[v reproduz_derrota@i_825 i `i  1 a 2 14 ]
+"289
+[v reproduz_derrota@i i `i  1 a 2 12 ]
+"331
 } 0
 "11 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\rand.c
 [v _rand rand `(i  1 e 2 0 ]
@@ -469,9 +538,9 @@
 {
 "1549
 [v vfprintf@cfmt cfmt `*.25uc  1 a 2 71 ]
-[s S1265 _IO_FILE 0 ]
+[s S1328 _IO_FILE 0 ]
 "1546
-[v vfprintf@fp fp `*.2S1265  1 p 2 65 ]
+[v vfprintf@fp fp `*.2S1328  1 p 2 65 ]
 [v vfprintf@fmt fmt `*.25Cuc  1 p 2 67 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 69 ]
 "1569
@@ -479,14 +548,14 @@
 "1048
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1283 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+[u S1346 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
 "1059
-[v vfpfcnvrt@convarg convarg `S1283  1 a 4 59 ]
+[v vfpfcnvrt@convarg convarg `S1346  1 a 4 59 ]
 "1050
 [v vfpfcnvrt@cp cp `*.25uc  1 a 2 63 ]
-[s S1265 _IO_FILE 0 ]
+[s S1328 _IO_FILE 0 ]
 "1048
-[v vfpfcnvrt@fp fp `*.2S1265  1 p 2 51 ]
+[v vfpfcnvrt@fp fp `*.2S1328  1 p 2 51 ]
 [v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 53 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 55 ]
 "1543
@@ -500,9 +569,9 @@
 [v dtoa@p p `i  1 a 2 44 ]
 "472
 [v dtoa@s s `uc  1 a 1 50 ]
-[s S1265 _IO_FILE 0 ]
+[s S1328 _IO_FILE 0 ]
 "470
-[v dtoa@fp fp `*.2S1265  1 p 2 38 ]
+[v dtoa@fp fp `*.2S1328  1 p 2 38 ]
 [v dtoa@d d `i  1 p 2 40 ]
 "527
 } 0
@@ -512,9 +581,9 @@
 "154
 [v pad@w w `i  1 a 2 36 ]
 [v pad@i i `i  1 a 2 34 ]
-[s S1265 _IO_FILE 0 ]
+[s S1328 _IO_FILE 0 ]
 "152
-[v pad@fp fp `*.2S1265  1 p 2 27 ]
+[v pad@fp fp `*.2S1328  1 p 2 27 ]
 [v pad@buf buf `*.39uc  1 p 2 29 ]
 [v pad@p p `i  1 p 2 31 ]
 "183
@@ -528,27 +597,27 @@
 [v fputs@c c `uc  1 a 1 24 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 20 ]
-[u S1243 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1246 _IO_FILE 12 `S1243 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputs@fp fp `*.2S1246  1 p 2 22 ]
+[u S1306 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1309 _IO_FILE 12 `S1306 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputs@fp fp `*.2S1309  1 p 2 22 ]
 "19
 } 0
 "8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 11 ]
-[u S1243 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S1246 _IO_FILE 12 `S1243 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.2S1246  1 p 2 13 ]
+[u S1306 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1309 _IO_FILE 12 `S1306 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.2S1309  1 p 2 13 ]
 "24
 } 0
-"30 C:\Users\joaop\Desktop\micro-final2\tcc-micro.X\main.c
+"34 C:\Users\brasi\MPLABXProjects\tcc-micro.X\main.c
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@byte byte `uc  1 a 1 wreg ]
 [v putch@byte byte `uc  1 a 1 wreg ]
 [v putch@byte byte `uc  1 a 1 10 ]
-"33
+"37
 } 0
 "1 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -580,26 +649,31 @@
 [v ___awdiv@divisor divisor `i  1 p 2 12 ]
 "41
 } 0
-"141 C:\Users\joaop\Desktop\micro-final2\tcc-micro.X\main.c
+"109 C:\Users\brasi\MPLABXProjects\tcc-micro.X\main.c
+[v _millis millis `(uo  1 e 8 0 ]
+{
+"111
+} 0
+"181
 [v _initUART initUART `(v  1 e 1 0 ]
 {
-"152
+"192
 } 0
-"154
+"194
 [v _init init `(v  1 e 1 0 ]
 {
-"178
+"230
 } 0
-"35
+"39
 [v _interruption interruption `IIH(v  1 e 1 0 ]
 {
+"96
+[v interruption@i_731 i `i  1 a 2 8 ]
 "83
-[v interruption@i_689 i `i  1 a 2 8 ]
+[v interruption@i_730 i `i  1 a 2 6 ]
 "70
-[v interruption@i_688 i `i  1 a 2 6 ]
+[v interruption@i_729 i `i  1 a 2 4 ]
 "57
-[v interruption@i_687 i `i  1 a 2 4 ]
-"44
 [v interruption@i i `i  1 a 2 2 ]
-"94
+"107
 } 0
